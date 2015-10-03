@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	.container
+		nav.navbar.navbar-default.navbar-inverse
+			.container-fluid
+				.navbar-header
+					button.navbar-toggle.collapsed(type=button, 
+												data-toggle='collapse',
+												data-target='#topnav',
+												aria-expanded='false')
+						span.sr-only Toogle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					if user
+						a.navbar-brand(href='/') Welcome, #{user.fullname}!
+					else
+						a.navbar-brand(href='/') Welcome to Loga3D!
+				.collapse.navbar-collapse#topnav
+					ul.nav.navbar-nav
+						if user
+							li
+								a(href='/orders') Orders
+							li
+								a(href='/myfiles') My files
+							li
+								a(href='/profile') Profile 
+							li
+								a(href='/logout') Logout
+		.row
+			.col-md-12
+				if message && message != ''
+					.alert.alert-info(role='alert')= message
+				
+				if !user
+					include login.jade
+					
+				else
+					block indexcontent

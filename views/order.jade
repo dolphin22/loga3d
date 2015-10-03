@@ -1,0 +1,35 @@
+extends index
+
+block indexcontent
+	h1= title
+	.row
+		.col-md-4
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title= user.fullname  + '\'s Orders'
+				.panel-body
+					p= 'Number of orders\t' + orders.length
+		.col-md-8
+			.table-responsive
+				table.table.table-striped.table-hover.table-condensed
+					thead
+						tr
+							th #
+							th File
+							th Price
+							th Status
+							th Date
+							th Action
+					tbody.rowlink(data-link='row')
+						- var i = 1;
+						//- for file in user.files
+						- for (j=orders.length; j > 0; j--)
+							tr
+								th(scope='row')
+									a(href='/orders/#{orders[j-1]._id}')= orders[j-1].orderid
+								td.rowlink-skip= orders[j-1]._file.filename
+								td.rowlink-skip= orders[j-1].price
+								td.rowlink-skip= orders[j-1].status
+								td.rowlink-skip= moment(orders[j-1].timestamp).tz('Asia/Ho_Chi_Minh').format("HH:mm DD-MMM-YY")
+								td.rowlink-skip
+									a.btn.btn-danger(href='/orders/delete/#{orders[j-1]._id}') Cancel

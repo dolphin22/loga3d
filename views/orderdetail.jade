@@ -1,0 +1,31 @@
+extends index
+
+block indexcontent
+	h1= title + order.orderid
+	.row
+		.col-md-6
+			.input-group
+				span.input-group-addon#file File
+				input.form-control(type='text', aria-describedby='file', value="#{order._file.filename}")
+			
+			.input-group
+				span.input-group-addon#hours Hours
+				input.form-control(type='text', aria-describedby='hours', value="#{order.hours}")
+				
+			.input-group
+				span.input-group-addon#price Price
+				input.form-control(type='text', aria-describedby='price', value="#{order.price}")
+				
+			.input-group
+				span.input-group-addon#status Status
+				input.form-control(type='text', aria-describedby='status', value="#{order.status}")
+				
+			.input-group
+				span.input-group-addon#note Note
+				input.form-control(type='textarea', aria-describedby='note', value="#{order.note}")
+				
+			.input-group
+				span.input-group-addon#date Date
+				input.form-control(type='textarea', aria-describedby='date', value="#{moment(order.timestamp).tz('Asia/Ho_Chi_Minh').format('HH:mm DD-MMM-YY')}")
+			
+			a.btn.btn-danger(href="/orders/delete/#{order._id}") Cancel

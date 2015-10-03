@@ -1,0 +1,44 @@
+extends index
+
+block indexcontent
+	h1= title
+	.row
+		form(name='userprofile', action='/user/update', method='post')
+			.col-md-6
+				.form-group
+					label(for='fullname') Full Name
+					input.form-control#fullname(name='fullname', type='text', value="#{user.fullname}")
+				
+				.form-group
+					label(for='email') Email
+					input.form-control#email(disable, name='email', type='email', value="#{user.email}")
+				
+				.form-group
+					label(for='password') Password
+					input.form-control#password(name='password', type='password', value="#{user.password}")
+				
+				button.btn.btn-default(type='submit') Save
+			.col-md-6
+				.form-group
+					label(for='address') Address
+					input.form-control#address(name='address', type='text', value="#{user.address}")
+				
+				.form-group
+					label(for='district') District
+					input.form-control#district(name='district', type='text', value="#{user.district}")
+				
+				.form-group
+					label(for='city') City
+					input.form-control#city(name='city', type='text', value="#{user.city}")
+				
+				.form-group
+					label(for='country') Country
+					input.form-control#country(name='country', type='text', value="#{user.country}")
+					
+				.form-group
+					label(for='zipcode') Zipcode
+					input.form-control#zipcode(name='zipcode', type='text', value="#{user.zipcode}")
+				
+				.form-group
+					label(for='phone') Phone
+					input.form-control#phone(name='phone', type='text', value="#{user.phone}")

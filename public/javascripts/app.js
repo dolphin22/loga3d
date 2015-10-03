@@ -1,0 +1,1 @@
+$('tbody.rowlink').rowlink();

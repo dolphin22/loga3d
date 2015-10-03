@@ -1,0 +1,14 @@
+.row
+	.col-md-6.col-md-offset-3
+		h1 Sign In
+		form.form-inline(name='login', action='/', method='post')
+			.form-group
+				label.sr-only(for='email') Email
+				input.form-control#email(type='email', name='email', placeholder='Email')
+			
+			.form-group
+				label.sr-only(for='password') Password
+				input.form-control#password(type='password', name='password', placeholder='Password')
+			
+			button.btn.btn-default(type='submit') Sign In
+		a(href='/user/create') or create account?
